@@ -2,6 +2,18 @@ import 'package:get/get.dart';
 
 import '../modules/address/bindings/address_binding.dart';
 import '../modules/address/views/address_view.dart';
+import '../modules/dashboard/bindings/dashboard_binding.dart';
+import '../modules/dashboard/dashboardviews/ads/bindings/ads_binding.dart';
+import '../modules/dashboard/dashboardviews/ads/views/ads_view.dart';
+import '../modules/dashboard/dashboardviews/deals/bindings/deals_binding.dart';
+import '../modules/dashboard/dashboardviews/deals/views/deals_view.dart';
+import '../modules/dashboard/dashboardviews/popularcategory/bindings/popularcategory_binding.dart';
+import '../modules/dashboard/dashboardviews/popularcategory/views/popularcategory_view.dart';
+import '../modules/dashboard/dashboardviews/sellewaste/bindings/sellewaste_binding.dart';
+import '../modules/dashboard/dashboardviews/sellewaste/bindings/sellewaste_binding.dart';
+import '../modules/dashboard/dashboardviews/sellewaste/views/sellewaste_view.dart';
+import '../modules/dashboard/dashboardviews/sellewaste/views/sellewaste_view.dart';
+import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/location/bindings/location_binding.dart';
 import '../modules/location/views/location_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -45,6 +57,40 @@ class AppPages {
       name: _Paths.ADDRESS,
       page: () => AddressView(),
       binding: AddressBinding(),
+    ),
+    GetPage(
+      name: _Paths.DASHBOARD,
+      page: () => DashboardView(),
+      binding: DashboardBinding(),
+      children: [
+        GetPage(
+          name: _Paths.SELLEWASTE,
+          page: () => const SellewasteView(),
+          binding: SellewasteBinding(),
+          children: [
+            GetPage(
+              name: _Paths.SELLEWASTE,
+              page: () => const SellewasteView(),
+              binding: SellewasteBinding(),
+            ),
+          ],
+        ),
+        GetPage(
+          name: _Paths.POPULARCATEGORY,
+          page: () => PopularcategoryView(),
+          binding: PopularcategoryBinding(),
+        ),
+        GetPage(
+          name: _Paths.ADS,
+          page: () => const AdsView(),
+          binding: AdsBinding(),
+        ),
+        GetPage(
+          name: _Paths.DEALS,
+          page: () => const DealsView(),
+          binding: DealsBinding(),
+        ),
+      ],
     ),
   ];
 }

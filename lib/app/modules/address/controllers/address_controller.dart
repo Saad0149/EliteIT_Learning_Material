@@ -1,9 +1,10 @@
 import 'package:get/get.dart';
 
 class AddressController extends GetxController {
-  final isSelected = false.obs;
+  RxInt selectedRadioIndex = RxInt(-1);
+  final List<String> radioValues = ['Home', 'Hostel', 'Office', 'Others'];
 
-  void toggleSelection() {
-    isSelected.value = !isSelected.value;
+  void onRadioSelected(int index) {
+    selectedRadioIndex.value = index;
   }
 }

@@ -16,6 +16,7 @@ dependencies:
   libphonenumber: ^2.0.2
   google_fonts: ^5.1.0
   font_awesome_flutter: ^10.4.0
+  flutter_slidable: ^3.0.0
 
 dev_dependencies: 
   flutter_lints: ^2.0.0

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rental_dispose_app/app/data/appcolor.dart';
-import 'package:rental_dispose_app/app/modules/location/views/location_view.dart';
+import 'package:rental_dispose_app/app/modules/dashboard/views/dashboard_view.dart';
+import 'package:rental_dispose_app/app/modules/login/views/login_view.dart';
+import '../../location/controllers/location_controller.dart';
 import '../controllers/address_controller.dart';
 
 class AddressView extends GetView<AddressController> {
@@ -11,6 +13,7 @@ class AddressView extends GetView<AddressController> {
   final AddressController controller = Get.put(AddressController());
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut<LocationController>(() => LocationController());
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -27,7 +30,7 @@ class AddressView extends GetView<AddressController> {
           width: 100,
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 9),
           child: ElevatedButton(
-            onPressed: () => Get.offAll(LocationView()),
+            onPressed: () => Get.offAll(LoginView()),
             style: ElevatedButton.styleFrom(
               elevation: 0.0,
               backgroundColor: AppColor.backgroundColor,
@@ -240,7 +243,7 @@ class AddressView extends GetView<AddressController> {
               height: 15,
             ),
             Container(
-              height: 180,
+              height: 160,
               width: double.infinity,
               color: AppColor.backgroundColor,
               child: Column(
@@ -263,132 +266,55 @@ class AddressView extends GetView<AddressController> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      InkWell(
-                        onTap: controller.toggleSelection,
-                        borderRadius: BorderRadius.circular(3.0),
-                        child: Obx(() {
-                          return Container(
-                            width: 20.0,
-                            height: 20.0,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: controller.isSelected.value
-                                  ? Colors.blue
-                                  : Colors.transparent,
-                              border: Border.all(color: Colors.blue),
+                    children: List.generate(
+                      controller.radioValues.length,
+                      (index) {
+                        return Row(
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                controller.onRadioSelected(index);
+                              },
+                              borderRadius: BorderRadius.circular(20.0),
+                              child: Obx(() {
+                                return Container(
+                                  width: 25,
+                                  height: 25,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color:
+                                        controller.selectedRadioIndex.value ==
+                                                index
+                                            ? Colors.blue
+                                            : Colors.transparent,
+                                    border: Border.all(color: Colors.blue),
+                                  ),
+                                  child: Icon(
+                                    controller.selectedRadioIndex.value == index
+                                        ? Icons.check
+                                        : Icons.add,
+                                    size: 12,
+                                    color:
+                                        controller.selectedRadioIndex.value ==
+                                                index
+                                            ? AppColor.backgroundColor
+                                            : AppColor.primary,
+                                  ),
+                                );
+                              }),
                             ),
-                            child: Icon(
-                              controller.isSelected.value
-                                  ? Icons.check
-                                  : Icons.add,
-                              size: 12,
-                              color: controller.isSelected.value
-                                  ? Colors.white
-                                  : Colors.blue,
+                            const SizedBox(
+                              width: 8,
                             ),
-                          );
-                        }),
-                      ),
-                      Text(
-                        'Home',
-                        style: GoogleFonts.poppins(
-                            color: AppColor.textFont, fontSize: 12),
-                      ),
-                      InkWell(
-                        onTap: controller.toggleSelection,
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Obx(() {
-                          return Container(
-                            width: 20.0,
-                            height: 20.0,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: controller.isSelected.value
-                                  ? Colors.blue
-                                  : Colors.transparent,
-                              border: Border.all(color: Colors.blue),
-                            ),
-                            child: Icon(
-                              controller.isSelected.value
-                                  ? Icons.check
-                                  : Icons.add,
-                              size: 12,
-                              color: controller.isSelected.value
-                                  ? Colors.white
-                                  : Colors.blue,
-                            ),
-                          );
-                        }),
-                      ),
-                      Text(
-                        'Hostel',
-                        style: GoogleFonts.poppins(
-                            color: AppColor.textFont, fontSize: 12),
-                      ),
-                      InkWell(
-                        onTap: controller.toggleSelection,
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Obx(() {
-                          return Container(
-                            width: 20.0,
-                            height: 20.0,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: controller.isSelected.value
-                                  ? Colors.blue
-                                  : Colors.transparent,
-                              border: Border.all(color: Colors.blue),
-                            ),
-                            child: Icon(
-                              controller.isSelected.value
-                                  ? Icons.check
-                                  : Icons.add,
-                              size: 12,
-                              color: controller.isSelected.value
-                                  ? Colors.white
-                                  : Colors.blue,
-                            ),
-                          );
-                        }),
-                      ),
-                      Text(
-                        'Office',
-                        style: GoogleFonts.poppins(
-                            color: AppColor.textFont, fontSize: 12),
-                      ),
-                      InkWell(
-                        onTap: controller.toggleSelection,
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Obx(() {
-                          return Container(
-                            width: 20.0,
-                            height: 20.0,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: controller.isSelected.value
-                                  ? Colors.blue
-                                  : Colors.transparent,
-                              border: Border.all(color: Colors.blue),
-                            ),
-                            child: Icon(
-                              controller.isSelected.value
-                                  ? Icons.check
-                                  : Icons.add,
-                              size: 12,
-                              color: controller.isSelected.value
-                                  ? Colors.white
-                                  : Colors.blue,
-                            ),
-                          );
-                        }),
-                      ),
-                      Text(
-                        'Others',
-                        style: GoogleFonts.poppins(
-                            color: AppColor.textFont, fontSize: 12),
-                      ),
-                    ],
+                            Text(
+                              controller.radioValues[index],
+                              style: GoogleFonts.poppins(
+                                  color: AppColor.textFont, fontSize: 12),
+                            )
+                          ],
+                        );
+                      },
+                    ),
                   ),
                   const SizedBox(
                     height: 15,
@@ -400,7 +326,7 @@ class AddressView extends GetView<AddressController> {
                         padding: const EdgeInsets.symmetric(horizontal: 15),
                         height: 50,
                         child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () => Get.offAll(DashboardView()),
                             style: const ButtonStyle(
                                 backgroundColor:
                                     MaterialStatePropertyAll(AppColor.primary)),

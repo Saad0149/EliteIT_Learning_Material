@@ -8,8 +8,10 @@ import '../controllers/location_controller.dart';
 class LocationView extends GetView<LocationController> {
   LocationView({Key? key}) : super(key: key);
   final LocationController _cityName = Get.put(LocationController());
+
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut<LocationController>(() => LocationController());
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
       appBar: AppBar(
@@ -92,17 +94,20 @@ class LocationView extends GetView<LocationController> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: GestureDetector(
-                onTap: () => Get.offAll(AddressView()),
-                child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            crossAxisSpacing: 8.0,
-                            mainAxisSpacing: 8.0),
-                    itemCount: _cityName.cityNames.length,
-                    itemBuilder: (context, index) {
-                      return Container(
+              child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 8.0,
+                      mainAxisSpacing: 8.0),
+                  itemCount: _cityName.cityNames.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        // String name = _cityName.cityNames[index]['name'];
+                        // controller.setCityName(name);
+                        Get.offAll(AddressView());
+                      },
+                      child: Container(
                         height: 150,
                         //color: AppColor.backgroundColor,
                         decoration: BoxDecoration(
@@ -125,9 +130,9 @@ class LocationView extends GetView<LocationController> {
                             Text(_cityName.cityNames[index]['name']),
                           ],
                         ),
-                      );
-                    }),
-              ),
+                      ),
+                    );
+                  }),
             ),
           ),
         ],
