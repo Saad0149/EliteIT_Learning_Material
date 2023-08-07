@@ -11,13 +11,16 @@ abstract class Routes {
   static const LOCATION = _Paths.LOCATION;
   static const ADDRESS = _Paths.ADDRESS;
   static const DASHBOARD = _Paths.DASHBOARD;
-  static const HOME = _Paths.DASHBOARD + _Paths.HOME;
   static const SELLEWASTE =
       _Paths.DASHBOARD + _Paths.DASHBOARDVIEWS + _Paths.SELLEWASTE;
   static const POPULARCATEGORY =
       _Paths.DASHBOARD + _Paths.DASHBOARDVIEWS + _Paths.POPULARCATEGORY;
   static const ADS = _Paths.DASHBOARD + _Paths.DASHBOARDVIEWS + _Paths.ADS;
   static const DEALS = _Paths.DASHBOARD + _Paths.DASHBOARDVIEWS + _Paths.DEALS;
+  static const HOME = _Paths.DASHBOARD + _Paths.DASHBOARDVIEWS + _Paths.HOME;
+  static const WISHLIST = _Paths.WISHLIST;
+  static const SUBSCRIPTION = _Paths.SUBSCRIPTION;
+  static const PROFILE = _Paths.PROFILE;
 }
 
 abstract class _Paths {
@@ -29,10 +32,13 @@ abstract class _Paths {
   static const LOCATION = '/location';
   static const ADDRESS = '/address';
   static const DASHBOARD = '/dashboard';
-  static const HOME = '/home';
+  static const HOME = '/dashboard/dashboardviews/home';
   static const DASHBOARDVIEWS = '/dasboard/dashboardcategory';
   static const SELLEWASTE = '/sellewaste';
   static const POPULARCATEGORY = '/popularcategory';
   static const ADS = '/ads';
   static const DEALS = '/deals';
+  static const WISHLIST = '/wishlist';
+  static const SUBSCRIPTION = '/subscription';
+  static const PROFILE = '/profile';
 }

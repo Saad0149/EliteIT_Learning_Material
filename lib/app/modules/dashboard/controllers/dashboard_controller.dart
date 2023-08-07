@@ -1,23 +1,31 @@
+import 'dart:collection';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DashboardController extends GetxController {
-  //TODO: Implement DashboardController
+  int currentindex = 0;
+  ListQueue<int> navigationQueue = ListQueue();
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  bool isLoading = true;
+
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void changeTabIndex(int index) {
+    currentindex = index;
+
+    if (index == currentindex) {
+      navigationQueue.clear();
+      navigationQueue.addLast(index);
+      currentindex = index;
+      update();
+    }
+    update();
   }
 
   @override
-  void onReady() {
+  void onReady() async {
+    isLoading = false;
+    update();
     super.onReady();
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

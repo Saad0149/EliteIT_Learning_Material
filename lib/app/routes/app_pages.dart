@@ -7,11 +7,11 @@ import '../modules/dashboard/dashboardviews/ads/bindings/ads_binding.dart';
 import '../modules/dashboard/dashboardviews/ads/views/ads_view.dart';
 import '../modules/dashboard/dashboardviews/deals/bindings/deals_binding.dart';
 import '../modules/dashboard/dashboardviews/deals/views/deals_view.dart';
+import '../modules/dashboard/dashboardviews/home/bindings/home_binding.dart';
+import '../modules/dashboard/dashboardviews/home/views/home_view.dart';
 import '../modules/dashboard/dashboardviews/popularcategory/bindings/popularcategory_binding.dart';
 import '../modules/dashboard/dashboardviews/popularcategory/views/popularcategory_view.dart';
 import '../modules/dashboard/dashboardviews/sellewaste/bindings/sellewaste_binding.dart';
-import '../modules/dashboard/dashboardviews/sellewaste/bindings/sellewaste_binding.dart';
-import '../modules/dashboard/dashboardviews/sellewaste/views/sellewaste_view.dart';
 import '../modules/dashboard/dashboardviews/sellewaste/views/sellewaste_view.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/location/bindings/location_binding.dart';
@@ -20,8 +20,14 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/otp/bindings/otp_binding.dart';
 import '../modules/otp/views/otp_view.dart';
+import '../modules/profile/bindings/profile_binding.dart';
+import '../modules/profile/views/profile_view.dart';
 import '../modules/start/bindings/start_binding.dart';
 import '../modules/start/views/start_view.dart';
+import '../modules/subscription/bindings/subscription_binding.dart';
+import '../modules/subscription/views/subscription_view.dart';
+import '../modules/wishlist/bindings/wishlist_binding.dart';
+import '../modules/wishlist/views/wishlist_view.dart';
 
 part 'app_routes.dart';
 
@@ -87,10 +93,30 @@ class AppPages {
         ),
         GetPage(
           name: _Paths.DEALS,
-          page: () => const DealsView(),
+          page: () => DealsView(),
           binding: DealsBinding(),
         ),
+        GetPage(
+          name: _Paths.HOME,
+          page: () => const HomeView(),
+          binding: HomeBinding(),
+        ),
       ],
+    ),
+    GetPage(
+      name: _Paths.WISHLIST,
+      page: () => const WishlistView(),
+      binding: WishlistBinding(),
+    ),
+    GetPage(
+      name: _Paths.SUBSCRIPTION,
+      page: () => const SubscriptionView(),
+      binding: SubscriptionBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
     ),
   ];
 }
