@@ -5,26 +5,26 @@ class DealsController extends GetxController {
     {
       'image': 'assets/ac.jpg',
       'name': 'Gree 2 tons A.C',
-      'disocunt': '-60%',
-      'rentPerMonth': 'PKR 5000'
+      'discount': '-60%',
+      'rentPerMonth': 'PKR 5000/month'
     },
     {
       'image': 'assets/led.png',
       'name': 'Samsung LED 60 In screen',
-      'disocunt': '-30%',
-      'rentPerMonth': 'PKR 4400'
+      'discount': '-30%',
+      'rentPerMonth': 'PKR 4400/month'
     },
     {
       'image': 'assets/fridge.jpg',
       'name': 'Built-In French Door Fridge',
-      'disocunt': '-25%',
-      'rentPerMonth': 'PKR 7000'
+      'discount': '-25%',
+      'rentPerMonth': 'PKR 7000/month'
     },
     {
       'image': 'assets/washing-machine.jpg',
       'name': 'Samsung Washing Machine',
-      'disocunt': '-40%',
-      'rentPerMonth': 'PKR 4100'
+      'discount': '-40%',
+      'rentPerMonth': 'PKR 4100/month'
     },
   ];
 }

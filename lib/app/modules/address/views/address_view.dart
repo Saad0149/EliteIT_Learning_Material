@@ -326,7 +326,7 @@ class AddressView extends GetView<AddressController> {
                         padding: const EdgeInsets.symmetric(horizontal: 15),
                         height: 50,
                         child: ElevatedButton(
-                            onPressed: () => Get.offAll(DashboardView()),
+                            onPressed: () => Get.offAll(const DashboardView()),
                             style: const ButtonStyle(
                                 backgroundColor:
                                     MaterialStatePropertyAll(AppColor.primary)),

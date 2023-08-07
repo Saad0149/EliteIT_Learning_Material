@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import '../modules/address/bindings/address_binding.dart';
 import '../modules/address/views/address_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
@@ -13,6 +12,8 @@ import '../modules/dashboard/dashboardviews/popularcategory/bindings/popularcate
 import '../modules/dashboard/dashboardviews/popularcategory/views/popularcategory_view.dart';
 import '../modules/dashboard/dashboardviews/sellewaste/bindings/sellewaste_binding.dart';
 import '../modules/dashboard/dashboardviews/sellewaste/views/sellewaste_view.dart';
+import '../modules/dashboard/dashboardviews/userstories/bindings/userstories_binding.dart';
+import '../modules/dashboard/dashboardviews/userstories/views/userstories_view.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/location/bindings/location_binding.dart';
 import '../modules/location/views/location_view.dart';
@@ -20,6 +21,10 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/otp/bindings/otp_binding.dart';
 import '../modules/otp/views/otp_view.dart';
+import '../modules/productlistscreen/bindings/productlistscreen_binding.dart';
+import '../modules/productlistscreen/productlistfilter/bindings/productlistfilter_binding.dart';
+import '../modules/productlistscreen/productlistfilter/views/productlistfilter_view.dart';
+import '../modules/productlistscreen/views/productlistscreen_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/start/bindings/start_binding.dart';
@@ -101,6 +106,11 @@ class AppPages {
           page: () => const HomeView(),
           binding: HomeBinding(),
         ),
+        GetPage(
+          name: _Paths.USERSTORIES,
+          page: () => const UserstoriesView(),
+          binding: UserstoriesBinding(),
+        ),
       ],
     ),
     GetPage(
@@ -117,6 +127,18 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.PRODUCTLISTSCREEN,
+      page: () => const ProductlistscreenView(),
+      binding: ProductlistscreenBinding(),
+      children: [
+        GetPage(
+          name: _Paths.PRODUCTLISTFILTER,
+          page: () => ProductlistfilterView(),
+          binding: ProductlistfilterBinding(),
+        ),
+      ],
     ),
   ];
 }
