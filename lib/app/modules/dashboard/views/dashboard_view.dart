@@ -113,9 +113,9 @@ class DashboardView extends GetView<DashboardController> {
   Widget getBody(DashboardController _) {
     List<Widget> pages = [
       const HomeView(),
-      const WishlistView(),
+      WishlistView(),
       const SubscriptionView(),
-      const ProfileView(),
+      ProfileView(),
     ];
     return IndexedStack(
       index: _.currentindex,
@@ -169,6 +169,7 @@ class DashboardView extends GetView<DashboardController> {
         color: AppColor.primary,
       ),
       onTap: _.changeTabIndex,
+      elevation: 0.0,
     );
   }
 }

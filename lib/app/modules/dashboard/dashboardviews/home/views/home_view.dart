@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rental_dispose_app/app/data/appcolor.dart';
 import 'package:rental_dispose_app/app/modules/dashboard/dashboardviews/deals/views/deals_view.dart';
+import 'package:rental_dispose_app/app/modules/dashboard/dashboardviews/sellewaste/views/sellewastescreen.dart';
 import '../../popularcategory/views/popularcategory_view.dart';
 import '../../sellewaste/views/sellewaste_view.dart';
 import '../controllers/home_controller.dart';
@@ -48,14 +49,17 @@ class HomeView extends GetView<HomeController> {
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                height: 100,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: AppColor.backgroundColor,
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: AppColor.primary)),
-                child: const SellewasteView(),
+              GestureDetector(
+                onTap: () => Get.offAll(SellEwasteScreen()),
+                child: Container(
+                  height: 100,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: AppColor.backgroundColor,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: AppColor.primary)),
+                  child: const SellewasteView(),
+                ),
               ),
               const SizedBox(
                 height: 30,

@@ -71,7 +71,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.DASHBOARD,
-      page: () => DashboardView(),
+      page: () => const DashboardView(),
       binding: DashboardBinding(),
       children: [
         GetPage(
@@ -108,24 +108,24 @@ class AppPages {
         ),
         GetPage(
           name: _Paths.USERSTORIES,
-          page: () => const UserstoriesView(),
+          page: () => UserstoriesView(),
           binding: UserstoriesBinding(),
         ),
       ],
     ),
     GetPage(
       name: _Paths.WISHLIST,
-      page: () => const WishlistView(),
+      page: () => WishlistView(),
       binding: WishlistBinding(),
     ),
     GetPage(
       name: _Paths.SUBSCRIPTION,
-      page: () => const SubscriptionView(),
+      page: () => SubscriptionView(),
       binding: SubscriptionBinding(),
     ),
     GetPage(
       name: _Paths.PROFILE,
-      page: () => const ProfileView(),
+      page: () => ProfileView(),
       binding: ProfileBinding(),
     ),
     GetPage(
