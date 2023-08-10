@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rental_dispose_app/app/modules/profile/profileViews/addressbook/views/addressbook_view.dart';
 import '../../../data/appcolor.dart';
 import '../controllers/profile_controller.dart';
 
@@ -32,14 +33,14 @@ class ProfileView extends GetView<ProfileController> {
               color: AppColor.boxFillColor,
               border: Border.all(color: AppColor.boxFillColor, width: 2),
             ),
-            child: Center(
-              child: SizedBox(
-                height: 30,
-                width: 30,
+            child: SizedBox(
+              height: 30,
+              width: 30,
+              child: Center(
                 child: Text(
                   'JA',
                   style: GoogleFonts.poppins(
-                      color: AppColor.primary, fontSize: 20),
+                      color: AppColor.primary, fontSize: 21),
                 ),
               ),
             ),
@@ -57,6 +58,19 @@ class ProfileView extends GetView<ProfileController> {
                   borderRadius: BorderRadius.circular(6),
                   border: Border.all(width: 2.5, color: AppColor.boxFillColor)),
               child: ListTile(
+                onTap: () {
+                  switch (index) {
+                    case 0:
+                      break;
+                    case 1:
+                      break;
+                    case 2:
+                      break;
+                    case 3:
+                      Get.offAll(() => AddressbookView());
+                      break;
+                  }
+                },
                 leading: Icon(
                   ctrl.profile[index]['icon'],
                   size: 30,

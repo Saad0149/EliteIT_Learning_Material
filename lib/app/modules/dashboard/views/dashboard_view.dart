@@ -114,7 +114,7 @@ class DashboardView extends GetView<DashboardController> {
     List<Widget> pages = [
       const HomeView(),
       WishlistView(),
-      const SubscriptionView(),
+      SubscriptionView(),
       ProfileView(),
     ];
     return IndexedStack(

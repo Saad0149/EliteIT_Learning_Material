@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rental_dispose_app/app/data/appcolor.dart';
 import 'package:rental_dispose_app/app/modules/productlistscreen/productlistfilter/views/productlistfilter_view.dart';
+import '../../dashboard/views/dashboard_view.dart';
 import '../controllers/productlistscreen_controller.dart';
 
 class ProductlistscreenView extends GetView<ProductlistscreenController> {
@@ -21,20 +22,23 @@ class ProductlistscreenView extends GetView<ProductlistscreenController> {
         toolbarHeight: 60,
         leadingWidth: 85,
         leading: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
           child: Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                color: AppColor.boxFillColor,
-                border: Border.all(color: AppColor.boxFillColor, width: 2)),
+              borderRadius: BorderRadius.circular(5),
+              color: AppColor.boxFillColor,
+              border: Border.all(color: AppColor.boxFillColor, width: 2),
+            ),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColor.backgroundColor, elevation: 0.0),
+                backgroundColor: AppColor.backgroundColor,
+                elevation: 0.0,
+              ),
               child: const Icon(
                 Icons.arrow_back_outlined,
                 color: AppColor.primary,
               ),
-              onPressed: () {},
+              onPressed: () => Get.offAll(() => const DashboardView()),
             ),
           ),
         ),

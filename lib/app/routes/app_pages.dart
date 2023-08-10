@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import '../modules/address/bindings/address_binding.dart';
 import '../modules/address/views/address_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
@@ -26,6 +27,8 @@ import '../modules/productlistscreen/productlistfilter/bindings/productlistfilte
 import '../modules/productlistscreen/productlistfilter/views/productlistfilter_view.dart';
 import '../modules/productlistscreen/views/productlistscreen_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
+import '../modules/profile/profileViews/addressbook/bindings/addressbook_binding.dart';
+import '../modules/profile/profileViews/addressbook/views/addressbook_view.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/start/bindings/start_binding.dart';
 import '../modules/start/views/start_view.dart';
@@ -127,6 +130,13 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => ProfileView(),
       binding: ProfileBinding(),
+      children: [
+        GetPage(
+          name: _Paths.ADDRESSBOOK,
+          page: () => AddressbookView(),
+          binding: AddressbookBinding(),
+        ),
+      ],
     ),
     GetPage(
       name: _Paths.PRODUCTLISTSCREEN,

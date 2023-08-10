@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,7 +8,6 @@ import 'package:rental_dispose_app/app/modules/dashboard/views/dashboard_view.da
 
 class SellEwasteScreen extends GetView<SellewasteController> {
   const SellEwasteScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,6 +97,7 @@ class SellEwasteScreen extends GetView<SellewasteController> {
                       labelStyle: GoogleFonts.poppins(
                           color: AppColor.textFont, fontSize: 14),
                     ),
+                    keyboardType: TextInputType.text,
                   ),
                   const SizedBox(
                     height: 15,
@@ -111,6 +112,7 @@ class SellEwasteScreen extends GetView<SellewasteController> {
                       labelStyle: GoogleFonts.poppins(
                           color: AppColor.textFont, fontSize: 14),
                     ),
+                    keyboardType: TextInputType.text,
                   ),
                   const SizedBox(
                     height: 15,
@@ -125,6 +127,7 @@ class SellEwasteScreen extends GetView<SellewasteController> {
                       labelStyle: GoogleFonts.poppins(
                           color: AppColor.textFont, fontSize: 14),
                     ),
+                    keyboardType: TextInputType.text,
                   ),
                   const SizedBox(
                     height: 15,
@@ -138,6 +141,175 @@ class SellEwasteScreen extends GetView<SellewasteController> {
                       labelText: 'Years in Use',
                       labelStyle: GoogleFonts.poppins(
                           color: AppColor.textFont, fontSize: 14),
+                    ),
+                    keyboardType: TextInputType.number,
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    child: InputDecorator(
+                      decoration: InputDecoration(
+                        labelText: 'Condition',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(
+                                      color: AppColor.subtitle, width: 1.5)),
+                              child: Text(
+                                'Not Working',
+                                style: GoogleFonts.poppins(
+                                    color: AppColor.textFont, fontSize: 13),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              height: 50,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(
+                                      color: AppColor.subtitle, width: 1.5)),
+                              child: Text(
+                                'Working',
+                                style: GoogleFonts.poppins(
+                                    color: AppColor.textFont, fontSize: 13),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  InputDecorator(
+                    decoration: InputDecoration(
+                      labelText: 'Upload the Photo of E-Waste',
+                      labelStyle: GoogleFonts.poppins(
+                          color: AppColor.subtitle, fontSize: 14),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'A Photo will help us assess the value of your e-waste. Please upload one to complete your request',
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 3,
+                          style: GoogleFonts.poppins(
+                              color: AppColor.textFont, fontSize: 13),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 35),
+                              child: DottedBorder(
+                                color: AppColor.boxFillColor,
+                                strokeWidth: 2,
+                                dashPattern: const [10, 6],
+                                child: Column(
+                                  children: [
+                                    const Icon(
+                                      Icons.camera_alt_outlined,
+                                      size: 80,
+                                    ),
+                                    Text(
+                                      'Capture',
+                                      style: GoogleFonts.poppins(
+                                          color: AppColor.subtitle,
+                                          fontSize: 12),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 25,
+                              width: 25,
+                              child: Text(
+                                'or',
+                                style: GoogleFonts.poppins(
+                                    color: AppColor.subtitle, fontSize: 12),
+                              ),
+                            ),
+                            Container(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 25),
+                              child: DottedBorder(
+                                color: AppColor.boxFillColor,
+                                strokeWidth: 2,
+                                dashPattern: const [10, 6],
+                                child: Column(
+                                  children: [
+                                    const Icon(
+                                      Icons.drive_folder_upload_outlined,
+                                      size: 80,
+                                    ),
+                                    Text(
+                                      'Upload',
+                                      style: GoogleFonts.poppins(
+                                          color: AppColor.subtitle,
+                                          fontSize: 12),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      // if (_phoneController.phoneNumber.value.isEmpty) {
+                      //   Get.snackbar(
+                      //       'Empty Field', 'Please Enter Your Phone Number',
+                      //       snackPosition: SnackPosition.BOTTOM);
+                      // } else {
+                      //   Get.offAll(() => OtpView(),
+                      //       arguments: _phoneController.phoneNumber.value);
+                      // }
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      height: 55,
+                      decoration: BoxDecoration(
+                          color: AppColor.primary,
+                          borderRadius: BorderRadius.circular(5)),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      child: Center(
+                        child: Text(
+                          'Submit to get an Instant Estimation',
+                          style: GoogleFonts.poppins(
+                            color: AppColor.backgroundColor,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ],

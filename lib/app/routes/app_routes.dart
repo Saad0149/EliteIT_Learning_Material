@@ -26,6 +26,8 @@ abstract class Routes {
   static const PRODUCTLISTSCREEN = _Paths.PRODUCTLISTSCREEN;
   static const PRODUCTLISTFILTER =
       _Paths.PRODUCTLISTSCREEN + _Paths.PRODUCTLISTFILTER;
+  static const ADDRESSBOOK =
+      _Paths.PROFILE + _Paths.PROFILEVIEWS + _Paths.ADDRESSBOOK;
 }
 
 abstract class _Paths {
@@ -46,7 +48,9 @@ abstract class _Paths {
   static const WISHLIST = '/wishlist';
   static const SUBSCRIPTION = '/subscription';
   static const PROFILE = '/profile';
+  static const PROFILEVIEWS = '/profile/profileViews';
   static const USERSTORIES = '/userstories';
   static const PRODUCTLISTSCREEN = '/productlistscreen';
   static const PRODUCTLISTFILTER = '/productlistfilter';
+  static const ADDRESSBOOK = '/addressbook';
 }

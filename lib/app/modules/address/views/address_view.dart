@@ -58,7 +58,7 @@ class AddressView extends GetView<AddressController> {
             height: 20,
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Get.offAll(() => DashboardView()),
                 style: ElevatedButton.styleFrom(
                   elevation: 0.0,
                   backgroundColor: AppColor.backgroundColor,
@@ -106,6 +106,7 @@ class AddressView extends GetView<AddressController> {
                         height: 15,
                       ),
                       TextFormField(
+                        controller: controller.nameController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(5),
@@ -120,6 +121,7 @@ class AddressView extends GetView<AddressController> {
                         height: 15,
                       ),
                       TextFormField(
+                        controller: controller.phoneNumberController,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -160,6 +162,7 @@ class AddressView extends GetView<AddressController> {
                       height: 10,
                     ),
                     TextFormField(
+                      controller: controller.addressController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5),
@@ -175,6 +178,7 @@ class AddressView extends GetView<AddressController> {
                     ),
                     TextFormField(
                       keyboardType: TextInputType.text,
+                      controller: controller.localityController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5),
@@ -191,6 +195,7 @@ class AddressView extends GetView<AddressController> {
                     Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                       Expanded(
                         child: TextFormField(
+                          controller: controller.cityController,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
@@ -208,6 +213,7 @@ class AddressView extends GetView<AddressController> {
                       Expanded(
                         child: TextFormField(
                           keyboardType: TextInputType.number,
+                          controller: controller.pincodeController,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(5),
@@ -225,6 +231,7 @@ class AddressView extends GetView<AddressController> {
                     ),
                     TextFormField(
                       keyboardType: TextInputType.text,
+                      controller: controller.stateController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5),
@@ -285,20 +292,20 @@ class AddressView extends GetView<AddressController> {
                                     color:
                                         controller.selectedRadioIndex.value ==
                                                 index
-                                            ? Colors.blue
+                                            ? AppColor.boxFillColor
                                             : Colors.transparent,
                                     border: Border.all(color: Colors.blue),
                                   ),
                                   child: Icon(
                                     controller.selectedRadioIndex.value == index
-                                        ? Icons.check
-                                        : Icons.add,
-                                    size: 12,
+                                        ? Icons.circle_rounded
+                                        : Icons.circle_outlined,
+                                    size: 16,
                                     color:
                                         controller.selectedRadioIndex.value ==
                                                 index
-                                            ? AppColor.backgroundColor
-                                            : AppColor.primary,
+                                            ? AppColor.primary
+                                            : AppColor.backgroundColor,
                                   ),
                                 );
                               }),
@@ -326,7 +333,10 @@ class AddressView extends GetView<AddressController> {
                         padding: const EdgeInsets.symmetric(horizontal: 15),
                         height: 50,
                         child: ElevatedButton(
-                            onPressed: () => Get.offAll(const DashboardView()),
+                            onPressed: () {
+                              controller.saveAddress();
+                              Get.offAll(const DashboardView());
+                            },
                             style: const ButtonStyle(
                                 backgroundColor:
                                     MaterialStatePropertyAll(AppColor.primary)),
