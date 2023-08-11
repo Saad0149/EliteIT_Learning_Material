@@ -12,6 +12,8 @@ import '../modules/dashboard/dashboardviews/home/views/home_view.dart';
 import '../modules/dashboard/dashboardviews/popularcategory/bindings/popularcategory_binding.dart';
 import '../modules/dashboard/dashboardviews/popularcategory/views/popularcategory_view.dart';
 import '../modules/dashboard/dashboardviews/sellewaste/bindings/sellewaste_binding.dart';
+import '../modules/dashboard/dashboardviews/sellewaste/reviewewaste/bindings/reviewewaste_binding.dart';
+import '../modules/dashboard/dashboardviews/sellewaste/reviewewaste/views/reviewewaste_view.dart';
 import '../modules/dashboard/dashboardviews/sellewaste/views/sellewaste_view.dart';
 import '../modules/dashboard/dashboardviews/userstories/bindings/userstories_binding.dart';
 import '../modules/dashboard/dashboardviews/userstories/views/userstories_view.dart';
@@ -86,6 +88,11 @@ class AppPages {
               name: _Paths.SELLEWASTE,
               page: () => const SellewasteView(),
               binding: SellewasteBinding(),
+            ),
+            GetPage(
+              name: _Paths.REVIEWEWASTE,
+              page: () => const ReviewewasteView(),
+              binding: ReviewewasteBinding(),
             ),
           ],
         ),

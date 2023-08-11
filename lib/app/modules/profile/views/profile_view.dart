@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rental_dispose_app/app/modules/login/views/login_view.dart';
 import 'package:rental_dispose_app/app/modules/profile/profileViews/addressbook/views/addressbook_view.dart';
 import '../../../data/appcolor.dart';
 import '../controllers/profile_controller.dart';
@@ -68,6 +69,9 @@ class ProfileView extends GetView<ProfileController> {
                       break;
                     case 3:
                       Get.offAll(() => AddressbookView());
+                      break;
+                    case 8:
+                      Get.offAll(() => LoginView());
                       break;
                   }
                 },

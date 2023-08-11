@@ -1,13 +1,17 @@
+import 'dart:io';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:rental_dispose_app/app/data/appcolor.dart';
 import 'package:rental_dispose_app/app/modules/dashboard/dashboardviews/sellewaste/controllers/sellewaste_controller.dart';
 import 'package:rental_dispose_app/app/modules/dashboard/views/dashboard_view.dart';
 
 class SellEwasteScreen extends GetView<SellewasteController> {
-  const SellEwasteScreen({super.key});
+  SellEwasteScreen({super.key});
+  final SellewasteController ctrl = Get.put(SellewasteController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -207,38 +211,47 @@ class SellEwasteScreen extends GetView<SellewasteController> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'A Photo will help us assess the value of your e-waste. Please upload one to complete your request',
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 3,
-                          style: GoogleFonts.poppins(
-                              color: AppColor.textFont, fontSize: 13),
+                        Obx(
+                          () => ctrl.selectImagePath.value == ''
+                              ? Text(
+                                  'A Photo will help us assess the value of your e-waste. Please upload one to complete your request',
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 3,
+                                  style: GoogleFonts.poppins(
+                                      color: AppColor.textFont, fontSize: 13),
+                                )
+                              : Image.file(File(ctrl.selectImagePath.value)),
                         ),
                         const SizedBox(
-                          height: 5,
+                          height: 10,
                         ),
                         Row(
                           children: [
-                            Container(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 35),
-                              child: DottedBorder(
-                                color: AppColor.boxFillColor,
-                                strokeWidth: 2,
-                                dashPattern: const [10, 6],
-                                child: Column(
-                                  children: [
-                                    const Icon(
-                                      Icons.camera_alt_outlined,
-                                      size: 80,
-                                    ),
-                                    Text(
-                                      'Capture',
-                                      style: GoogleFonts.poppins(
-                                          color: AppColor.subtitle,
-                                          fontSize: 12),
-                                    )
-                                  ],
+                            GestureDetector(
+                              onTap: () {
+                                ctrl.getImage(ImageSource.camera);
+                              },
+                              child: Container(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 35),
+                                child: DottedBorder(
+                                  color: AppColor.boxFillColor,
+                                  strokeWidth: 2,
+                                  dashPattern: const [10, 6],
+                                  child: Column(
+                                    children: [
+                                      const Icon(
+                                        Icons.camera_alt_outlined,
+                                        size: 80,
+                                      ),
+                                      Text(
+                                        'Capture',
+                                        style: GoogleFonts.poppins(
+                                            color: AppColor.subtitle,
+                                            fontSize: 12),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -251,26 +264,35 @@ class SellEwasteScreen extends GetView<SellewasteController> {
                                     color: AppColor.subtitle, fontSize: 12),
                               ),
                             ),
-                            Container(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 25),
-                              child: DottedBorder(
-                                color: AppColor.boxFillColor,
-                                strokeWidth: 2,
-                                dashPattern: const [10, 6],
-                                child: Column(
-                                  children: [
-                                    const Icon(
-                                      Icons.drive_folder_upload_outlined,
-                                      size: 80,
-                                    ),
-                                    Text(
-                                      'Upload',
-                                      style: GoogleFonts.poppins(
-                                          color: AppColor.subtitle,
-                                          fontSize: 12),
-                                    )
-                                  ],
+                            GestureDetector(
+                              onTap: () {
+                                // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                // children: [
+
+                                // ],);
+                                ctrl.getImage(ImageSource.gallery);
+                              },
+                              child: Container(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 25),
+                                child: DottedBorder(
+                                  color: AppColor.boxFillColor,
+                                  strokeWidth: 2,
+                                  dashPattern: const [10, 6],
+                                  child: Column(
+                                    children: [
+                                      const Icon(
+                                        Icons.drive_folder_upload_outlined,
+                                        size: 80,
+                                      ),
+                                      Text(
+                                        'Upload',
+                                        style: GoogleFonts.poppins(
+                                            color: AppColor.subtitle,
+                                            fontSize: 12),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -283,16 +305,7 @@ class SellEwasteScreen extends GetView<SellewasteController> {
                     height: 10,
                   ),
                   InkWell(
-                    onTap: () {
-                      // if (_phoneController.phoneNumber.value.isEmpty) {
-                      //   Get.snackbar(
-                      //       'Empty Field', 'Please Enter Your Phone Number',
-                      //       snackPosition: SnackPosition.BOTTOM);
-                      // } else {
-                      //   Get.offAll(() => OtpView(),
-                      //       arguments: _phoneController.phoneNumber.value);
-                      // }
-                    },
+                    onTap: () {},
                     child: Container(
                       width: double.infinity,
                       height: 55,
