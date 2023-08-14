@@ -49,7 +49,7 @@ class AddressController extends GetxController {
     final existingAddresses = existingAddressesJson
         .map((addressJson) => AddressModel.fromJson(json.decode(addressJson)))
         .toList();
-    print('Existing addresses: $existingAddressesJson');
+    //print('Existing addresses: $existingAddressesJson');
 
     return existingAddresses;
   }

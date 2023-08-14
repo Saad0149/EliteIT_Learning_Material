@@ -6,8 +6,9 @@ import '../../dashboard/views/dashboard_view.dart';
 import '../controllers/subscription_controller.dart';
 
 class SubscriptionView extends GetView<SubscriptionController> {
-  const SubscriptionView({Key? key}) : super(key: key);
-  // final SubscriptionController ctrl = Get.put(SubscriptionController());
+  SubscriptionView({Key? key}) : super(key: key);
+  final SubscriptionController ctrl = Get.put(SubscriptionController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,47 +48,38 @@ class SubscriptionView extends GetView<SubscriptionController> {
           ),
         ),
       ),
-      // body: Column(
-      //   mainAxisAlignment: MainAxisAlignment.start,
-      //   crossAxisAlignment: CrossAxisAlignment.start,
-      //   children: [
-      //     TabBar(
-      //       tabs: const [
-      //         Tab(
-      //           text: 'Currenlty Owning',
-      //         ),
-      //         Tab(
-      //           text: 'Past Plan',
-      //         ),
-      //       ],
-      //       onTap: ctrl.selectedTabIndex,
-      //       controller: ctrl.tabController,
-      //     ),
-      //     Expanded(
-      //         child: Obx(() => TabBarView(
-      //               controller: ctrl.tabController,
-      //               children: [
-      //                 // ListView.builder(itemBuilder: (ctx, index) {
-      //                 //   return null;
-      //                 // }),
-      //                 SizedBox(
-      //                   child: Text(
-      //                     'Tv Owned',
-      //                     style: GoogleFonts.poppins(
-      //                         color: AppColor.textFont, fontSize: 17),
-      //                   ),
-      //                 ),
-      //                 SizedBox(
-      //                   child: Text(
-      //                     'Nothing Owned',
-      //                     style: GoogleFonts.poppins(
-      //                         color: AppColor.textFont, fontSize: 17),
-      //                   ),
-      //                 ),
-      //               ],
-      //             ))),
-      //   ],
-      // ),
+      backgroundColor: AppColor.backgroundColor,
+      body: Column(
+        children: [
+          Container(
+            height: 10,
+            width: double.infinity,
+            color: AppColor.boxFillColor,
+          ),
+          // TabBar
+          TabBar(
+            controller: ctrl.tabController,
+            labelColor: AppColor.primary,
+            unselectedLabelColor: AppColor.subtitle,
+            labelStyle:
+                GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400),
+            isScrollable: false,
+            tabs: const [
+              Tab(text: 'Tab 1'),
+              Tab(text: 'Tab 2'),
+            ],
+          ),
+          Expanded(
+            child: TabBarView(
+              controller: ctrl.tabController,
+              children: const [
+                Center(child: Text('Tab 1 content')),
+                Center(child: Text('Tab 2 content')),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

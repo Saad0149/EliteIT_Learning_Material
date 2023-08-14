@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rental_dispose_app/app/data/appcolor.dart';
+import 'package:rental_dispose_app/app/modules/dashboard/dashboardviews/ads/views/ads_view.dart';
 import 'package:rental_dispose_app/app/modules/dashboard/dashboardviews/deals/views/deals_view.dart';
 import 'package:rental_dispose_app/app/modules/dashboard/dashboardviews/sellewaste/views/sellewastescreen.dart';
 import '../../popularcategory/views/popularcategory_view.dart';
@@ -27,9 +28,10 @@ class HomeView extends GetView<HomeController> {
                 height: 200,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: AppColor.backgroundColor,
+                  color: Colors.transparent,
                   borderRadius: BorderRadius.circular(8),
                 ),
+                child: AdsView(),
               ),
               const SizedBox(
                 height: 30,

@@ -1,26 +1,20 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SubscriptionController extends GetxController {
-  // final RxInt selectedTabIndex = 0.obs;
-  // late TabController tabController;
+class SubscriptionController extends GetxController
+    with GetSingleTickerProviderStateMixin {
+  late TabController tabController;
 
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  //   tabController = TabController(length: 2, vsync: ScrollableState());
-  //   selectedTabIndex.listen((index) {
-  //     tabController.animateTo(index);
-  //   });
-  // }
+  @override
+  void onInit() {
+    tabController = TabController(length: 3, vsync: this);
+    update();
+    super.onInit();
+  }
 
-  // void changeTabIndex(int index) {
-  //   selectedTabIndex.value = index;
-  // }
-
-  // @override
-  // void onClose() {
-  //   tabController.dispose();
-  //   super.onClose();
-  // }
+  @override
+  void onClose() {
+    tabController.dispose();
+    super.onClose();
+  }
 }

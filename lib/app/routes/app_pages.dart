@@ -15,8 +15,6 @@ import '../modules/dashboard/dashboardviews/sellewaste/bindings/sellewaste_bindi
 import '../modules/dashboard/dashboardviews/sellewaste/reviewewaste/bindings/reviewewaste_binding.dart';
 import '../modules/dashboard/dashboardviews/sellewaste/reviewewaste/views/reviewewaste_view.dart';
 import '../modules/dashboard/dashboardviews/sellewaste/views/sellewaste_view.dart';
-import '../modules/dashboard/dashboardviews/userstories/bindings/userstories_binding.dart';
-import '../modules/dashboard/dashboardviews/userstories/views/userstories_view.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/location/bindings/location_binding.dart';
 import '../modules/location/views/location_view.dart';
@@ -103,7 +101,7 @@ class AppPages {
         ),
         GetPage(
           name: _Paths.ADS,
-          page: () => const AdsView(),
+          page: () => AdsView(),
           binding: AdsBinding(),
         ),
         GetPage(
@@ -115,11 +113,6 @@ class AppPages {
           name: _Paths.HOME,
           page: () => const HomeView(),
           binding: HomeBinding(),
-        ),
-        GetPage(
-          name: _Paths.USERSTORIES,
-          page: () => UserstoriesView(),
-          binding: UserstoriesBinding(),
         ),
       ],
     ),

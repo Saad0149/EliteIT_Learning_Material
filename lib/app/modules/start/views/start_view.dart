@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:rental_dispose_app/app/data/appcolor.dart';
 import 'package:rental_dispose_app/app/modules/login/views/login_view.dart';
 //import 'package:rental_dispose_app/app/modules/login/views/login_view.dart';
 //import 'package:rental_dispose_app/app/modules/login/views/login_view.dart';
@@ -15,8 +17,17 @@ class StartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sliding Pages'),
+        title: Text(
+          'EcoRent',
+          style: GoogleFonts.poppins(
+              color: AppColor.primary,
+              fontSize: 17,
+              fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: AppColor.backgroundColor,
+        elevation: 0.0,
       ),
+      backgroundColor: AppColor.boxFillColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -28,35 +39,63 @@ class StartView extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            // Slide bar to indicate the progress
             Obx(
-              () => LinearProgressIndicator(
-                value: (_pageController.currentPageIndex.value + 1) /
-                    _pageController.pages.length,
+              () => Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:
+                    _pageController.imageList.asMap().entries.map((entry) {
+                  return GestureDetector(
+                    onTap: () => _pageController.goToPage(entry.key),
+                    child: Container(
+                      width: _pageController.currentPageIndex.value == entry.key
+                          ? 35
+                          : 5,
+                      height: 3.0,
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 3.0,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color:
+                            _pageController.currentPageIndex.value == entry.key
+                                ? AppColor.primary
+                                : AppColor.subtitle,
+                      ),
+                    ),
+                  );
+                }).toList(),
               ),
             ),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // Skip button
-                TextButton(
-                  onPressed: () => Get.offAll(LoginView()),
-                  child: const Text('Skip'),
-                ),
-                // Next button
-                ElevatedButton(
-                  onPressed: _pageController.navigateToNextPageOrFinish,
-                  child: Obx(
-                    () => Text(
-                      _pageController.currentPageIndex.value <
-                              _pageController.pages.length - 1
-                          ? 'Next'
-                          : 'Finish',
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                    onPressed: () => Get.offAll(LoginView()),
+                    child: Text(
+                      'Skip',
+                      style: GoogleFonts.poppins(
+                          color: AppColor.textFont,
+                          fontWeight: FontWeight.w700),
                     ),
                   ),
-                ),
-              ],
+                  ElevatedButton(
+                    onPressed: _pageController.navigateToNextPageOrFinish,
+                    child: Obx(
+                      () => Text(
+                        _pageController.currentPageIndex.value <
+                                _pageController.pages.length - 1
+                            ? 'Next'
+                            : 'Finish',
+                        style: GoogleFonts.poppins(
+                            color: AppColor.backgroundColor,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

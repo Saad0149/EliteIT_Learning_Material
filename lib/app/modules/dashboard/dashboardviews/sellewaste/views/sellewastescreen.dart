@@ -151,49 +151,47 @@ class SellEwasteScreen extends GetView<SellewasteController> {
                   const SizedBox(
                     height: 15,
                   ),
-                  Container(
-                    child: InputDecorator(
-                      decoration: InputDecoration(
-                        labelText: 'Condition',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(5.0),
+                  InputDecorator(
+                    decoration: InputDecoration(
+                      labelText: 'Condition',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                border: Border.all(
+                                    color: AppColor.subtitle, width: 1.5)),
+                            child: Text(
+                              'Not Working',
+                              style: GoogleFonts.poppins(
+                                  color: AppColor.textFont, fontSize: 13),
+                            ),
+                          ),
                         ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Container(
-                              alignment: Alignment.center,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  border: Border.all(
-                                      color: AppColor.subtitle, width: 1.5)),
-                              child: Text(
-                                'Not Working',
-                                style: GoogleFonts.poppins(
-                                    color: AppColor.textFont, fontSize: 13),
-                              ),
+                        Expanded(
+                          child: Container(
+                            height: 50,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                border: Border.all(
+                                    color: AppColor.subtitle, width: 1.5)),
+                            child: Text(
+                              'Working',
+                              style: GoogleFonts.poppins(
+                                  color: AppColor.textFont, fontSize: 13),
                             ),
                           ),
-                          Expanded(
-                            child: Container(
-                              height: 50,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  border: Border.all(
-                                      color: AppColor.subtitle, width: 1.5)),
-                              child: Text(
-                                'Working',
-                                style: GoogleFonts.poppins(
-                                    color: AppColor.textFont, fontSize: 13),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(
@@ -266,10 +264,6 @@ class SellEwasteScreen extends GetView<SellewasteController> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                // Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                // children: [
-
-                                // ],);
                                 ctrl.getImage(ImageSource.gallery);
                               },
                               child: Container(
