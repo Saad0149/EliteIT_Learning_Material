@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rental_dispose_app/app/data/appcolor.dart';
-//import 'package:rental_dispose_app/app/modules/address/views/address_view.dart';
-import 'package:rental_dispose_app/app/modules/location/views/location_view.dart';
 import '../controllers/otp_controller.dart';
 
 class OtpScreen extends StatelessWidget {
   final OtpController _otpController = Get.put(OtpController());
-
+  final verificationId = Get.arguments;
   OtpScreen({super.key});
 
   @override
@@ -21,9 +19,10 @@ class OtpScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              for (int i = 0; i < 4; i++)
+              for (int i = 0; i < 6; i++)
                 SizedBox(
-                  width: 60,
+                  width: 40,
+                  height: 50,
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
@@ -33,9 +32,13 @@ class OtpScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                       maxLength: 1,
                       obscureText: true,
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        counterText: '',
+                      ),
                       onChanged: (value) {
                         _otpController.updateOtpValue(i, value);
-                        if (value.isNotEmpty && i < 3) {
+                        if (value.isNotEmpty && i < 5) {
                           FocusScope.of(context).nextFocus();
                         }
                       },
@@ -48,7 +51,9 @@ class OtpScreen extends StatelessWidget {
           Column(
             children: [
               InkWell(
-                onTap: () => Get.offAll(LocationView()),
+                onTap: () {
+                  _otpController.verifyOtp(verificationId);
+                },
                 child: Container(
                   width: 350,
                   height: 55,

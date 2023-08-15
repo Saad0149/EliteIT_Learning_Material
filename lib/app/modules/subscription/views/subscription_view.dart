@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rental_dispose_app/app/data/appcolor.dart';
+import 'package:rental_dispose_app/app/modules/subscription/views/currently_owning.dart';
+import 'package:rental_dispose_app/app/modules/subscription/views/past_plan.dart';
 import '../../dashboard/views/dashboard_view.dart';
 import '../controllers/subscription_controller.dart';
 
 class SubscriptionView extends GetView<SubscriptionController> {
   SubscriptionView({Key? key}) : super(key: key);
   final SubscriptionController ctrl = Get.put(SubscriptionController());
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +57,6 @@ class SubscriptionView extends GetView<SubscriptionController> {
             width: double.infinity,
             color: AppColor.boxFillColor,
           ),
-          // TabBar
           TabBar(
             controller: ctrl.tabController,
             labelColor: AppColor.primary,
@@ -65,16 +65,16 @@ class SubscriptionView extends GetView<SubscriptionController> {
                 GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400),
             isScrollable: false,
             tabs: const [
-              Tab(text: 'Tab 1'),
-              Tab(text: 'Tab 2'),
+              Tab(text: 'Currently Owning'),
+              Tab(text: 'Past Plans'),
             ],
           ),
           Expanded(
             child: TabBarView(
               controller: ctrl.tabController,
-              children: const [
-                Center(child: Text('Tab 1 content')),
-                Center(child: Text('Tab 2 content')),
+              children: [
+                CurrenltyOwning(),
+                PastPlan(),
               ],
             ),
           ),

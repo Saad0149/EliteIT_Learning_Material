@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "883679330841",
+    "project_id": "ecorent-f99e9",
+    "storage_bucket": "ecorent-f99e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883679330841:android:e2ccab83e87faaff176088",
+        "android_client_info": {
+          "package_name": "behance.com.rental_dispose_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883679330841-3tln4nh9oqfn65gdta13rrovc2vevcht.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "behance.com.rental_dispose_app",
+            "certificate_hash": "5b78ad630825db7bab4ae977a76a5fa693603e2b"
+          }
+        },
+        {
+          "client_id": "883679330841-l0kt4d94mlfg4dlshtg496iuh4ma18tf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR1_sTNjVIlDVtE-O1PcFWOfyJi6In2FE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883679330841-l0kt4d94mlfg4dlshtg496iuh4ma18tf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

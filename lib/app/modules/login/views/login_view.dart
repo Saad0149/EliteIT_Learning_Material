@@ -144,6 +144,8 @@ class LoginView extends GetView<LoginController> {
                         'Empty Field', 'Please Enter Your Phone Number',
                         snackPosition: SnackPosition.BOTTOM);
                   } else {
+                    _phoneController
+                        .sendOtp(_phoneController.phoneNumber.value);
                     Get.offAll(() => OtpView(),
                         arguments: _phoneController.phoneNumber.value);
                   }

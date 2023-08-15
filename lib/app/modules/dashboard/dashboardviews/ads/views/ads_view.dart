@@ -53,7 +53,7 @@ class AdsView extends GetView<AdsController> {
                     onTap: () => _sliderController.goToPage(entry.key),
                     child: Container(
                       width: _sliderController.currentIndex.value == entry.key
-                          ? 25
+                          ? 20
                           : 5,
                       height: 3.0,
                       margin: const EdgeInsets.symmetric(
